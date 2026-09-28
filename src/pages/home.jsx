@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { Link } from "react-router";
+import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import logos from "../data/logo";
 import WebsiteGif from "../../src/assets/content-foundry-show-reel.mp4";
 import mockupDrama from "../../public/reel-drama.mp4";
@@ -461,7 +462,7 @@ const Home = () => {
         className="px-5 py-20 sm:px-6 lg:py-24 xl:px-8"
       >
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:gap-10">
-            {/* Cover */}
+          {/* Cover */}
           <div className="relative max-w-[300px]">
             <img src={founderMagazine} alt="Harshita Adlakha on the cover of Entrepreneurs Today, 30 Under 30 special issue, July 2024" className="block w-full" />
 
@@ -643,241 +644,365 @@ const Home = () => {
       </section>
 
       {/* WORK */}
-      <section id="work" className="bg-[#eee6db] py-[70px] lg:py-[85px]">
-        <div className="flex flex-col justify-between gap-5 px-[5vw] lg:flex-row lg:items-end">
+      <section
+        id="work"
+        className="bg-[#eee6db] py-[60px] sm:py-[70px] lg:py-[85px]"
+      >
+        {/* ================= HEADER ================= */}
+        <div
+          className="
+      flex flex-col gap-6
+      px-[5vw]
+      sm:gap-5
+      lg:flex-row
+      lg:items-end
+      lg:justify-between
+    "
+        >
           <div>
-            <div className="text-[12px] font-black uppercase tracking-[0.19em] text-violet">
+            <div
+              className="
+          text-[11px]
+          font-black
+          uppercase
+          tracking-[0.19em]
+          text-violet
+          sm:text-xs
+        "
+            >
               Keep exploring
             </div>
 
-            <h2 className="mt-[13px] font-serif text-[clamp(36px,4vw,66px)] leading-[1.03] tracking-[-0.04em]">
+            <h2
+              className="
+          mt-[13px]
+          max-w-[700px]
+          font-serif
+          text-[clamp(36px,8vw,66px)]
+          leading-[1.03]
+          tracking-[-0.04em]
+        "
+            >
               More stories. More formats.
             </h2>
           </div>
 
+          {/* ================= ARROWS ================= */}
           <div className="flex gap-2">
-            <button type="button" onClick={() => scrollWork(-1)} className="h-[45px] w-[45px] cursor-pointer border border-[#27231f] bg-transparent text-[22px] hover:bg-violet hover:text-white hover:border-violet" >
-              ←
+            <button
+              type="button"
+              onClick={() => scrollWork(-1)}
+              aria-label="Scroll work left"
+              className="
+          flex
+          h-11
+          w-11
+          cursor-pointer
+          items-center
+          justify-center
+          border
+          border-[#27231f]
+          bg-transparent
+          text-xl
+          transition-colors
+          duration-200
+          hover:border-violet
+          hover:bg-violet
+          hover:text-white
+        "
+            >
+              <GoArrowLeft />
             </button>
 
-            <button type="button" onClick={() => scrollWork(1)} aria-label="Scroll work right" className="h-[45px] w-[45px] cursor-pointer border border-[#27231f] bg-transparent text-[22px]  hover:bg-violet hover:text-white hover:border-violet" >
-              →
+            <button
+              type="button"
+              onClick={() => scrollWork(1)}
+              aria-label="Scroll work right"
+              className="
+          flex
+          h-11
+          w-11
+          cursor-pointer
+          items-center
+          justify-center
+          border
+          border-[#27231f]
+          bg-transparent
+          text-xl
+          transition-colors
+          duration-200
+          hover:border-violet
+          hover:bg-violet
+          hover:text-white
+        "
+            >
+              <GoArrowRight />
             </button>
           </div>
         </div>
 
-        <div className="w-full overflow-visible">
+        {/* ================= CARDS ================= */}
+        <div className="mt-6 w-full overflow-visible sm:mt-[30px]">
           <div
             ref={moreWorkRef}
             className="
-      mt-[30px]
-      w-full
-      flex
-      gap-4
-      overflow-x-auto
-      overflow-y-visible
-      px-[5vw]
-      pt-[70px]
-      pb-[100px]
-      [scrollbar-width:none]
-      [&::-webkit-scrollbar]:hidden
-    "
+        flex
+        w-full
+        gap-4
+        overflow-x-auto
+        overflow-y-visible
+        px-[5vw]
+        pt-[30px]
+        pb-[40px]
+
+        sm:pt-[70px]
+        sm:pb-[100px]
+
+        [scrollbar-width:none]
+        [&::-webkit-scrollbar]:hidden
+      "
           >
             {content.map((card, index) => (
               <div
                 key={card.slug || index}
                 className="
-          group
-          relative
-          w-[300px]
-          min-w-[300px]
-          h-[350px]
-          shrink-0
-          cursor-pointer
-          overflow-visible
-          hover:z-[100]
-        "
+            group
+            relative
+            h-[330px]
+            w-[82vw]
+            min-w-[82vw]
+            shrink-0
+            cursor-pointer
+
+            sm:h-[350px]
+            sm:w-[300px]
+            sm:min-w-[300px]
+
+            sm:hover:z-[100]
+          "
               >
-                {/* CARD */}
+                {/* ================= CARD ================= */}
                 <div
                   className="
-            absolute
-            left-0
-            top-0
-            w-full
-            h-[350px]
+              absolute
+              left-0
+              top-0
+              h-[330px]
+              w-full
+              overflow-hidden
+              rounded-xl
+              bg-black
 
-            overflow-hidden
-            rounded-xl
-            bg-black
+              transition-[height,transform,box-shadow]
+              duration-300
+              ease-out
 
-            transition-[height,transform,box-shadow]
-            duration-300
-            ease-out
-
-            group-hover:h-[460px]
-            group-hover:-translate-y-[35px]
-            group-hover:rounded-xl
-            group-hover:shadow-2xl
-          "
+              sm:h-[350px]
+              sm:group-hover:h-[460px]
+              sm:group-hover:-translate-y-[35px]
+              sm:group-hover:shadow-2xl
+            "
                 >
-                  {/* IMAGE */}
+                  {/* ================= IMAGE ================= */}
                   <img
                     src={card.thumbnail}
                     alt={card.title}
                     className="
-              absolute
-              inset-0
-              w-full
-              h-full
-              object-cover
+                absolute
+                inset-0
+                h-full
+                w-full
+                object-cover
 
-              transition-transform
-              duration-500
-              ease-out
+                transition-transform
+                duration-500
+                ease-out
 
-              group-hover:scale-105
-            "
+                sm:group-hover:scale-105
+              "
                   />
 
-                  {/* DARK GRADIENT */}
+                  {/* ================= DARK GRADIENT ================= */}
                   <div
                     className="
-              absolute
-              inset-0
-              bg-gradient-to-t
-              from-black
-              via-black/20
-              to-transparent
-            "
+                absolute
+                inset-0
+                bg-gradient-to-t
+                from-black
+                via-black/20
+                to-transparent
+              "
                   />
 
-                  {/* NUMBER */}
+                  {/* ================= NUMBER ================= */}
                   <div
                     className="
-              absolute
-              top-3
-              left-3
-              z-20
-              text-white
-              font-black
-              text-lg
-            "
+                absolute
+                left-4
+                top-4
+                z-20
+                text-lg
+                font-black
+                text-white
+              "
                   >
                     {String(card.number).padStart(2, "0")}
                   </div>
 
-                  {/* CARD TITLE */}
+                  {/* ================= CARD CONTENT ================= */}
                   <div
                     className="
-              absolute
-              left-0
-              right-0
-              bottom-0
-              z-20
-              p-4
+                absolute
+                bottom-0
+                left-0
+                right-0
+                z-20
+                p-5
 
-              transition-all
-              duration-300
-              ease-out
-
-              group-hover:bottom-[130px]
-            "
+                sm:transition-all
+                sm:duration-300
+                sm:ease-out
+                sm:group-hover:bottom-[130px]
+              "
                   >
                     <span
                       className="
-                text-xs
-                uppercase
-                tracking-wider
-                text-white/70
-              "
+                  text-[10px]
+                  uppercase
+                  tracking-[0.15em]
+                  text-white/70
+                "
                     >
                       {card.type}
                     </span>
 
                     <h3
                       className="
-                mt-1
-                text-lg
-                font-bold
-                leading-tight
-                text-white
-              "
+                  mt-1
+                  max-w-[90%]
+                  text-xl
+                  font-bold
+                  leading-tight
+                  text-white
+                "
                     >
                       {card.title}
                     </h3>
+
+                    {/* ================= MOBILE CTA ================= */}
+                    <div className="mt-4 sm:hidden">
+                      {index === 0 ? (
+                        <Link
+                          to={`/micro-drama/${card.slug}`}
+                          className="
+                      inline-flex
+                      items-center
+                      gap-2
+                      bg-red-600
+                      px-4
+                      py-2
+                      text-xs
+                      font-bold
+                      text-white
+                      transition-opacity
+                      duration-200
+                      hover:opacity-80
+                    "
+                        >
+                          {card.link || "Play Now"}
+                          <GoArrowRight className="text-sm" />
+                        </Link>
+                      ) : (
+                        <a
+                          href={card.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="
+                      inline-flex
+                      items-center
+                      gap-2
+                      bg-red-600
+                      px-4
+                      py-2
+                      text-xs
+                      font-bold
+                      text-white
+                      transition-opacity
+                      duration-200
+                      hover:opacity-80
+                    "
+                        >
+                          {card.link || "View Work"}
+                          <GoArrowRight className="text-sm" />
+                        </a>
+                      )}
+                    </div>
                   </div>
 
-                  {/* HOVER PANEL */}
+                  {/* ================= DESKTOP HOVER PANEL ================= */}
                   <div
                     className="
-              absolute
-              left-0
-              right-0
-              bottom-0
-              z-30
+                absolute
+                bottom-0
+                left-0
+                right-0
+                z-30
+                hidden
+                min-h-[130px]
+                rounded-b-xl
+                bg-[#171717]
+                p-4
+                text-white
 
-              min-h-[130px]
+                translate-y-full
+                opacity-0
 
-              rounded-b-xl
-              bg-[#171717]
+                transition-all
+                duration-300
+                ease-out
 
-              p-4
-              text-white
-
-              translate-y-full
-              opacity-0
-
-              transition-all
-              duration-300
-              ease-out
-
-              group-hover:translate-y-0
-              group-hover:opacity-100
-            "
+                sm:block
+                sm:group-hover:translate-y-0
+                sm:group-hover:opacity-100
+              "
                   >
                     {/* DESCRIPTION */}
                     {card.description && (
                       <p
                         className="
-                  mb-4
-                  line-clamp-3
-                  text-sm
-                  leading-5
-                  text-white/80
-                "
+                    mb-4
+                    line-clamp-3
+                    text-sm
+                    leading-5
+                    text-white/80
+                  "
                       >
                         {card.description}
                       </p>
                     )}
 
-                    {/* LINK */}
+                    {/* DESKTOP LINK */}
                     {index === 0 ? (
                       <Link
                         to={`/micro-drama/${card.slug}`}
                         className="
-                  inline-flex
-                  items-center
-                  gap-2
-
-                  rounded-full
-                  bg-red-600
-
-                  px-4
-                  py-2
-
-                  text-sm
-                  font-bold
-                  text-white
-
-                  transition-colors
-                  duration-200
-
-                  hover:bg-red-500
-                "
+                    inline-flex
+                    items-center
+                    gap-2
+                    rounded-full
+                    bg-red-600
+                    px-4
+                    py-2
+                    text-sm
+                    font-bold
+                    text-white
+                    transition-colors
+                    duration-200
+                    hover:bg-red-500
+                  "
                       >
                         {card.link || "Play Now"}
-                        <span className="text-xs">▶</span>
+                        <GoArrowRight className="text-xs" />
                       </Link>
                     ) : (
                       <a
@@ -885,28 +1010,23 @@ const Home = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="
-                  inline-flex
-                  items-center
-                  gap-2
-
-                  rounded-full
-                  bg-red-600
-
-                  px-4
-                  py-2
-
-                  text-sm
-                  font-bold
-                  text-white
-
-                  transition-colors
-                  duration-200
-
-                  hover:bg-red-500
-                "
+                    inline-flex
+                    items-center
+                    gap-2
+                    rounded-full
+                    bg-red-600
+                    px-4
+                    py-2
+                    text-sm
+                    font-bold
+                    text-white
+                    transition-colors
+                    duration-200
+                    hover:bg-red-500
+                  "
                       >
                         {card.link || "View Work"}
-                        <span className="text-xs">▶</span>
+                        <GoArrowRight className="text-xs" />
                       </a>
                     )}
                   </div>
@@ -918,22 +1038,99 @@ const Home = () => {
       </section>
 
       {/* CONTACT CTA */}
-      <section className="bg-violet py-[90px] text-white">
+      <section className="bg-violet py-[60px] sm:py-[75px] lg:py-[90px] text-white">
         <div className="mx-auto max-w-[1440px] px-[5vw]">
-          <h2 className="mb-6 max-w-[850px] font-serif text-[clamp(36px,4vw,66px)] font-black leading-[1.03] tracking-[-0.04em]">
-            What happens in episode one?
+
+          {/* Label */}
+          <div className="mb-4 text-[11px] font-black uppercase tracking-[0.19em] text-black sm:text-xs">
+            Start a conversation
+          </div>
+
+          {/* Heading */}
+          <h2
+            className="
+        mb-5
+        max-w-[850px]
+        font-serif
+        text-[clamp(36px,8vw,66px)]
+        font-bold
+        leading-[1.03]
+        tracking-[-0.04em]
+        sm:mb-6
+      "
+          >
+            Have a story worth telling? <br className="hidden sm:block" />
+            Let’s make people watch.
           </h2>
 
-          <p className="text-[17px] leading-[1.6] text-white">
-            Bring your product and audience. We'll bring three story hooks.
+          {/* Description */}
+          <p
+            className="
+        max-w-[700px]
+        text-[15px]
+        leading-[1.6]
+        text-white
+        sm:text-[17px]
+      "
+          >
+            Tell us the brand, audience and ambition. We’ll find the right
+            story and production route.
           </p>
 
-          <a
-            href="mailto:info@contentfoundry.in?subject=Content%20Foundry%20project"
-            className="mt-5 inline-flex items-center justify-center bg-[#171613] px-6 py-4 text-s font-black text-white"
+          {/* CTA Buttons */}
+          <div
+            className="
+        mt-6
+        flex
+        flex-col
+        gap-3
+        sm:flex-row
+        sm:gap-4
+      "
           >
-            info@contentfoundry.in ↗
-          </a>
+            <a
+              href="mailto:info@contentfoundry.in?subject=Content%20Foundry%20project"
+              className="
+          inline-flex
+          w-fit
+          items-center
+          justify-center
+          bg-[#171613]
+          px-6
+          py-4
+          text-sm
+          font-black
+          text-white
+          underline
+          transition-opacity
+          hover:opacity-80
+        "
+            >
+              info@contentfoundry.in ↗
+            </a>
+
+            <a
+              href="mailto:info@contentfoundry.in?subject=Content%20Foundry%20project"
+              className="
+          inline-flex
+          w-fit
+          items-center
+          justify-center
+          bg-[#171613]
+          px-6
+          py-4
+          text-sm
+          font-black
+          text-white
+          underline
+          transition-opacity
+          hover:opacity-80
+        "
+            >
+              Get a quote ↗
+            </a>
+          </div>
+
         </div>
       </section>
     </div>
