@@ -237,11 +237,11 @@ const Home = () => {
             </div>
             <div className="z-0 absolute inset-0  bg-black/60"></div>
 
-            <div className="z-1 absolute inset-0 p-7 flex flex-col justify-end">
-              <span className="absolute top-7 left-7 bg-white text-[#222] px-3 py-[9px] text-[11px] font-black uppercase">Live Shoot</span>
+            <div className="z-1 absolute inset-0 p-5 flex flex-col justify-end">
+              <span className="absolute top-5 left-5 bg-white text-[#222] px-3 py-[9px] text-[11px] font-black uppercase">Live Shoot</span>
               <small className="tracking-[0.17em] uppercase font-extrabold">10 episodes</small>
-              <h3 className="font-serif text-[45px] my-3">Na Jane Kyu</h3>
-              <a className="self-start mt-[25px] font-extrabold border-b border-white pb-[5px]" href="https://drive.google.com/drive/folders/1QXgc0IrbJApkh5S4xiy4BPzbbZrnoqvl?usp=sharing" target="_blank" rel="noopener" >
+              <h3 className="font-serif text-[45px] leading-none my-3">Na Jane Kyu</h3>
+              <a className="self-start font-extrabold border-b border-white pb-[5px]" href="https://drive.google.com/drive/folders/1QXgc0IrbJApkh5S4xiy4BPzbbZrnoqvl?usp=sharing" target="_blank" rel="noopener" >
                 Watch the series ↗
               </a>
             </div>
@@ -253,11 +253,11 @@ const Home = () => {
             </div>
             <div className="z-0 absolute inset-0  bg-black/60"></div>
 
-            <div className="z-1 absolute inset-0 p-7 flex flex-col justify-end">
-              <span className="absolute top-7 left-7 bg-white text-[#222] px-3 py-[9px] text-[11px] font-black uppercase">AI video</span>
+            <div className="z-1 absolute inset-0 p-5 flex flex-col justify-end">
+              <span className="absolute top-5 left-5 bg-white text-[#222] px-3 py-[9px] text-[11px] font-black uppercase">AI video</span>
               <small className="tracking-[0.17em] uppercase font-extrabold">Campus series</small>
               <h3 className="font-serif text-[45px] my-3">Campus Diary</h3>
-              <a className="self-start mt-[25px] font-extrabold border-b border-white pb-[5px]" href="https://drive.google.com/drive/folders/1QXgc0IrbJApkh5S4xiy4BPzbbZrnoqvl?usp=sharing" target="_blank" rel="noopener" >
+              <a className="self-start font-extrabold border-b border-white pb-[5px]" href="https://drive.google.com/drive/folders/1QXgc0IrbJApkh5S4xiy4BPzbbZrnoqvl?usp=sharing" target="_blank" rel="noopener" >
                 Watch the series ↗
               </a>
             </div>
@@ -271,11 +271,21 @@ const Home = () => {
       <section id="offer" className="bg-[#e8e0d5] px-5 py-20 sm:px-6 lg:py-24 xl:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="uppercase tracking-[0.19em] text-xs font-black text-violet mb-4">what we make</div>
-          <h2 className="mt-3 font-serif text-4xl font-black leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            From one film to a world
-            <br />
-            people come back to.
-          </h2>
+         <h2
+  className="
+    mt-3
+    max-w-[850px]
+    font-serif
+    text-[clamp(36px,8vw,60px)]
+    font-black
+    leading-[1.05]
+    tracking-[-0.03em]
+  "
+>
+  From one film to a world
+  <br className="hidden sm:block" />
+  {" "}people come back to.
+</h2>
 
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {[
@@ -910,7 +920,7 @@ const Home = () => {
                     "
                         >
                           {card.link || "Play Now"}
-                          <GoArrowRight className="text-sm" />
+                          
                         </Link>
                       ) : (
                         <a
@@ -933,7 +943,6 @@ const Home = () => {
                     "
                         >
                           {card.link || "View Work"}
-                          <GoArrowRight className="text-sm" />
                         </a>
                       )}
                     </div>
@@ -1002,7 +1011,6 @@ const Home = () => {
                   "
                       >
                         {card.link || "Play Now"}
-                        <GoArrowRight className="text-xs" />
                       </Link>
                     ) : (
                       <a
@@ -1026,7 +1034,6 @@ const Home = () => {
                   "
                       >
                         {card.link || "View Work"}
-                        <GoArrowRight className="text-xs" />
                       </a>
                     )}
                   </div>
